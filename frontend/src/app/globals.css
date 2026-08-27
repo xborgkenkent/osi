@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0f1419;
+  --bg-elevated: #171e26;
+  --bg-input: #0b1015;
+  --ink: #e8eef4;
+  --muted: #8b9aab;
+  --line: #2a3542;
+  --accent: #3d9b8f;
+  --accent-soft: rgba(61, 155, 143, 0.15);
+  --ok: #3ecf8e;
+  --ok-soft: rgba(62, 207, 142, 0.12);
+  --warn: #e6b35a;
+  --warn-soft: rgba(230, 179, 90, 0.12);
+  --fail: #e8756b;
+  --fail-soft: rgba(232, 117, 107, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(61, 155, 143, 0.18), transparent 55%),
+    radial-gradient(900px 500px at 90% 0%, rgba(70, 110, 160, 0.14), transparent 50%),
+    linear-gradient(180deg, #121820 0%, var(--bg) 40%, #0c1014 100%);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.45s ease-out both;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 1.4s ease-in-out infinite;
+}
+
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+}
+
+.live-dot {
+  animation: live-pulse 1.2s ease-in-out infinite;
+}
